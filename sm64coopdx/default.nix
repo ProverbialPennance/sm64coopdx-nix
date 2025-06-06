@@ -144,7 +144,7 @@ stdenv.mkDerivation (finalAtrrs: {
       - `enhanceLevelTextures`: (default: `true`) whether to enable further modability of level textures. Without, certaines textures have forced hues
       - `handheld`: (default: `false`) whether to "Make some small adjustments for handheld devices" as per upstream's description
     '';
-    license = lib.licenses.unfree;
+    # license = lib.licenses.unfree;
     platforms = lib.platforms.x86;
     # maintainers = [ lib.maintainers.shelvacu ];
     mainProgram = "sm64coopdx";
