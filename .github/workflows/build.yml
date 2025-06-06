@@ -1,0 +1,33 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "**.nix"
+      - flake.lock
+      - .github/workflows/*.yml
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "**.nix"
+      - flake.lock
+      - .github/workflows/*.yml
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: DeterminateSystems/nix-installer-action@v17
+        with:
+          source-url: https://install.lix.systems/lix/lix-installer-x86_64-linux
+          diagnostic-endpoint: ""
+
+      - run: nix build
