@@ -30,7 +30,7 @@ jobs:
           mkdir -p ~/.config/nixpkgs
           echo "{ allowUnfree = true; }" > ~/.config/nixpkgs/config.nix
 
-      - run: nix run github:Mic92/nix-update -- sm64coopdx --flake --commit --version-regex 'v(.*)'
+      - run: nix run github:Mic92/nix-update -- sm64coopdx --url 'https://github.com/coop-deluxe/sm64coopdx' --flake --commit --version-regex 'v(.*)'
 
       - id: create-pr
         uses: peter-evans/create-pull-request@v7
